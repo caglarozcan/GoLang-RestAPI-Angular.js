@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Golang Web Api</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="content/css/bootstrap.min.css" rel="stylesheet">
+    <script src="content/js/angular.min.js"></script>
+    <script src="content/js/script.js"></script>
+  </head>
+
+  <body>
+
+    <div class="container" ng-app="myApp" ng-controller="userList">
+      <div class="header clearfix">
+        <h3 class="text-muted">GoLang Angular.js RestApi</h3>
+      </div>
+
+      <div class="jumbotron">
+        <h1 class="display-3">GoLang RestApi</h1>
+        <p class="lead">Golang ile RestApi ve Angular.js</p>
+      </div>
+
+      <div class="row marketing">
+        <div class="col-lg-6" >
+          <h4>Kullanıcı Listesi</h4>
+          <p>
+
+            <div class="col-lg-12" >
+              <div class="col-lg-4" >
+                <div class="panel panel-default">
+                  <div class="panel-heading">Başlancıç</div>
+                  <div class="panel-body">
+                    {{startTime}}
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-4" >
+                <div class="panel panel-default">
+                  <div class="panel-heading">Bitiş</div>
+                  <div class="panel-body">
+                    {{endTime}}
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-4" >
+                <div class="panel panel-default">
+                  <div class="panel-heading">Fark</div>
+                  <div class="panel-body">
+                    {{fark}}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="input-group">
+              <span class="input-group-addon" id="sizing-addon2">
+                <span class="glyphicon glyphicon-search"></span>
+              </span>
+              <input type="text" class="form-control" placeholder="Ara.." aria-describedby="sizing-addon2" ng-model="searchText"/>
+            </div>
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                      <th>#</th>
+                      <th>İsim</th>
+                      <th>Soyisim</th>
+                      <th>Email Adresi</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="i in users | filter:searchText" >
+                    <td>{{i.id}}</td>
+                    <td>{{i.firstname}}</td>
+                    <td>{{i.lastname}}</td>
+                    <td>{{i.email}}</td>
+                  </tr>
+                  </tbody>
+              </table>
+          </p>
+        </div>
+
+        <div class="col-lg-6" >
+          <h4>Kullanıcı Ekle</h4>
+          <p>
+              <form ng-submit="processForm()" >
+                <div class="form-group">
+                  <label for="uname">İsim</label>
+                  <input type="text" name="FirstName" class="form-control" id="uname" placeholder="İsim" ng-model="formData.FirstName">
+                </div>
+                <div class="form-group">
+                  <label for="lname">Soyisim</label>
+                  <input type="text" name="LastName" class="form-control" id="lname" placeholder="Soyisim" ng-model="formData.LastName">
+                </div>
+                <div class="form-group">
+                  <label for="email">Email Adresi</label>
+                  <input type="text" name="Email" class="form-control" id="email" placeholder="Email" ng-model="formData.Email">
+                </div>
+                <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-flash"></span> Kayıt Ekle</button>
+              </form>
+          </p>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <p>&copy; Cahoo 2017</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+  </body>
+</html>
